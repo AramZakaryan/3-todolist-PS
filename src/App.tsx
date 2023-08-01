@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Todolist} from './Todolist';
-import { v1 } from 'uuid';
+import {v1} from 'uuid';
 
 // Hi guys!
-// 1. Let's try an alternative way. Instead of useState we can try useRef in Todolist.tsx:
+// + 1. Let's try an alternative way. Instead of useState
+// we can try useRef in Todolist.tsx:
 // <input
 //     //value={title}
 //     // onChange={ onChangeHandler }
@@ -13,7 +14,8 @@ import { v1 } from 'uuid';
 // />
 // let onChangeRef = useRef<HTMLInputElement>(null)
 // Inside of  const addTask = () => {} use onChangeRef.current.value
-// 2. Let's try children and F.C:
+//
+// + 2. Let's try children and F.C:
 // We will use double 'tag' <Todolist></Todolist>
 // <Todolist title="What to learn"
 //           tasks={tasksForTodolist}
@@ -34,6 +36,7 @@ import { v1 } from 'uuid';
 //         </div>
 //      )
 // }
+//
 // 3. Let's append some animation in our project:
 //yarn add  @formkit/auto-animate -D
 // we use -D, because the best practice is to add new extensions to the object inside the package.json
@@ -52,11 +55,11 @@ export type FilterValuesType = "all" | "active" | "completed";
 function App() {
 
     let [tasks, setTasks] = useState([
-        { id: v1(), title: "HTML&CSS", isDone: true },
-        { id: v1(), title: "JS", isDone: true },
-        { id: v1(), title: "ReactJS", isDone: false },
-        { id: v1(), title: "Rest API", isDone: false },
-        { id: v1(), title: "GraphQL", isDone: false },
+        {id: v1(), title: "HTML&CSS", isDone: true},
+        {id: v1(), title: "JS", isDone: true},
+        {id: v1(), title: "ReactJS", isDone: false},
+        {id: v1(), title: "Rest API", isDone: false},
+        {id: v1(), title: "GraphQL", isDone: false},
     ]);
 
     function removeTask(id: string) {
@@ -65,7 +68,7 @@ function App() {
     }
 
     function addTask(title: string) {
-        let task = { id: v1(), title: title, isDone: false };
+        let task = {id: v1(), title: title, isDone: false};
         let newTasks = [task, ...tasks];
         setTasks(newTasks);
     }
@@ -86,46 +89,25 @@ function App() {
     }
 
 
-
     return (
         <div className="App">
             <Todolist title="What to learn"
                       tasks={tasksForTodolist}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
-                      addTask={addTask} />
+                      addTask={addTask}>
+                <div>
+                    <br/>
+                    <div>new tag into Todolist as children</div>
+                </div>
+
+            </Todolist>
+
         </div>
     );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //-------------------------------------------------------------------------------------------------------

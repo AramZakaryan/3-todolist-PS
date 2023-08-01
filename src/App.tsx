@@ -37,9 +37,10 @@ import {v1} from 'uuid';
 //      )
 // }
 //
-// 3. Let's append some animation in our project:
+// + 3. Let's append some animation in our project:
 //yarn add  @formkit/auto-animate -D
-// we use -D, because the best practice is to add new extensions to the object inside the package.json
+// we use -D, because the best practice is to add
+// new extensions to the object inside the package.json
 // "devDependencies": {
 //     "@formkit/auto-animate": "^1.0.0-beta.3"
 //   }
@@ -47,7 +48,8 @@ import {v1} from 'uuid';
 // <ul ref={listRef}>
 //Look how smoothly the tasks are added!
 //P.S. Do you understand why a new task append in all Todolists?
-// [because we only have one state for all our todolists, but we'll talk about that on Tuesday.]
+// [because we only have one state for all our todolists,
+// but we'll talk about that on Tuesday.]
 
 
 export type FilterValuesType = "all" | "active" | "completed";
